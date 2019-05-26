@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/kitty --listen-on unix:/tmp/kitty/socket$(uuidgen)

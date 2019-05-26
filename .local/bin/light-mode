@@ -1,0 +1,34 @@
+#!/bin/bash
+dark_to_light() {
+  sed -i 's/282828/fbf1c7/g' $1
+  sed -i 's/ebdbb2/3c3836/g' $1 
+  sed -i 's/1d2021/f9f5d7/g' $1
+  sed -i 's/fb4943/9d0006/g' $1
+  sed -i 's/b8bb26/79740e/g' $1
+  sed -i 's/fabd2f/b57614/g' $1
+  sed -i 's/83a598/076678/g' $1
+  sed -i 's/d3869b/8f3f71/g' $1
+  sed -i 's/8ec07c/427b58/g' $1
+  sed -i 's/a89984/7c6f64/g' $1
+  sed -i 's/fe8019/af3a03/g' $1
+}
+nitrogen --set-zoom-fill --save ~/Pictures/Day\ Of\ Ubuntu\ Slideshow/day_of_ubuntu/noon.jpg
+gsettings set org.gnome.desktop.interface gtk-theme "oomox-Gruvbox_Light" 
+gsettings set org.gnome.desktop.interface icon-theme "oomox-Gruvbox_Light"
+theme_nvim light
+sed -i 's/set background=dark/set background=light/g' ~/.vimrc
+sed -i 's/dark/light/g' ~/.config/kitty/kitty.conf
+for file in /tmp/kitty/* 
+do
+  kitty @ --to unix:$file set-colors -a -c ~/Documents/base16-kitty/colors/base16-gruvbox-light-medium-256.conf
+done
+sed -i 's/dark/light/g' ~/.config/rofi/config
+sed -i 's/282828/fbf1c7/g' ~/.config/dunst/dunstrc
+sed -i 's/ebdbb2/3c3836/g' ~/.config/dunst/dunstrc
+dark_to_light ~/.config/i3/config
+dark_to_light ~/.config/i3blocks/config
+i3-msg reload
+killall i3bar; i3bar --bar_id=bar-1 & disown
+killall dunst
+sleep 1
+notify-send Notification "Light Mode Set!"

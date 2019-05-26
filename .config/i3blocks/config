@@ -1,0 +1,188 @@
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
+separator_block_width=20
+markup=none
+separator=false
+
+# Find your own networking interfaces by typing
+# 'ip link' or 'ifconfig' in a terminal window.
+# Yours are probably different than mine!
+
+#my ethernet interface is eth0
+#most people is eth0
+[bandwidth]
+instance=eth0
+interval=5
+color=#fabd2f
+label= ETH
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label= CPU
+interval=10
+min_width=CPU: 100.00%
+color=#fb4943
+
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[temperature]
+label= TEMP
+interval=10
+color=#fabd2f
+
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+[gpu-load]
+label= GPU
+interval=10
+color=#b8bb26
+#min_width=GPU 100% 100% 100% 100%
+#T_WARN=70
+#T_CRIT=90
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label= FREE
+interval=10
+color=#83a598
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+[disk]
+label= HD /home
+interval=30
+color=#d3869b
+separator_block_width=10
+
+# my root / partition
+[disk]
+label=/
+instance=/dev/nvme0n1p2
+interval=30
+color=#d3869b
+
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+[volume]
+interval=once
+label=♪ VOLUME
+signal=10
+color=#fe8019
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+[spotify.py]
+label=
+color=#8ec07c
+interval=2
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
+
+[date]
+command=date
+interval=1 
+label=
+color=#b8bb26
+
+########################
+separator_block_width=10
+[spacer]
+separator_block_width=10
+full_text=
+color=#ebdbb2
+########################
