@@ -17,6 +17,8 @@ gsettings set org.gnome.desktop.interface gtk-theme "oomox-Gruvbox_Dark"
 gsettings set org.gnome.desktop.interface icon-theme "oomox-Gruvbox_Dark" 
 theme_nvim dark
 sed -i 's/set background=light/set background=dark/g' ~/.vimrc
+sed -i 's/set background=light/set background=dark/g' ~/.vim_runtime/vimrcs/basic.vim
+sed -i 's/set background=light/set background=dark/g' ~/.vim_runtime/vimrcs/extended.vim
 sed -i 's/light/dark/g' ~/.config/kitty/kitty.conf
 for file in /tmp/kitty/* 
 do
