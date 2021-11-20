@@ -160,7 +160,7 @@ full_text=
 color=#ebdbb2
 ########################
 
-[spotify.py]
+[mediaplayer]
 label=
 color=#8ec07c
 interval=2

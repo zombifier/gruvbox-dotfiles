@@ -222,7 +222,10 @@ gaps outer 0
 smart_gaps on
 
 # Activate smart borders (always)
-smart_borders on
+smart_borders no_gaps
+
+# Rounded corners
+#border_radius 10
 
 # https://github.com/ValveSoftware/steam-for-linux/issues/1040
 for_window [class="^Steam$" title="^Friends$"] floating enable
@@ -237,13 +240,15 @@ for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Require
 for_window [title="^Steam Keyboard$"] floating enable
 for_window [class="pong"] floating enable
 for_window [class="Florence" title="florence"] floating enable
+for_window [instance="origin.exe"] floating enable
 
 # Startup apps
 exec --no-startup-id xrandr --output DP-4 --rate 144 --mode 2560x1440
 #exec --no-startup-id nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
-exec --no-startup-id picom
+exec --no-startup-id picom --experimental-backends
 exec --no-startup-id ibus-daemon
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id xwinwrap -g 2560x1440 -ov -ni -s -nf -fs -- gifview -w WID ~/Pictures/HUG.gif -a
 exec --no-startup-id /usr/libexec/gsd-xsettings
 exec --no-startup-id xscreensaver -no-splash
 exec --no-startup-id mkdir /tmp/kitty
